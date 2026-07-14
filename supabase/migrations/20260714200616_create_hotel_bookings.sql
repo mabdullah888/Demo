@@ -33,39 +33,39 @@
   no revenue column is stored.
 */
 
--- CREATE TABLE IF NOT EXISTS hotel_bookings (
---   id uuid PRIMARY KEY DEFAULT gen_random_uuid(),
---   full_name text NOT NULL,
---   phone text NOT NULL,
---   email text NOT NULL,
---   check_in date NOT NULL,
---   check_out date NOT NULL,
---   guests integer NOT NULL,
---   room_type text NOT NULL,
---   special_requests text,
---   booking_status text NOT NULL DEFAULT 'Pending',
---   created_at timestamptz DEFAULT now()
--- );
+CREATE TABLE IF NOT EXISTS hotel_bookings (
+  id uuid PRIMARY KEY DEFAULT gen_random_uuid(),
+  full_name text NOT NULL,
+  phone text NOT NULL,
+  email text NOT NULL,
+  check_in date NOT NULL,
+  check_out date NOT NULL,
+  guests integer NOT NULL,
+  room_type text NOT NULL,
+  special_requests text,
+  booking_status text NOT NULL DEFAULT 'Pending',
+  created_at timestamptz DEFAULT now()
+);
 
--- CREATE INDEX IF NOT EXISTS idx_hotel_bookings_status
---   ON hotel_bookings (booking_status);
--- CREATE INDEX IF NOT EXISTS idx_hotel_bookings_created_at
---   ON hotel_bookings (created_at DESC);
+CREATE INDEX IF NOT EXISTS idx_hotel_bookings_status
+  ON hotel_bookings (booking_status);
+CREATE INDEX IF NOT EXISTS idx_hotel_bookings_created_at
+  ON hotel_bookings (created_at DESC);
 
--- ALTER TABLE hotel_bookings ENABLE ROW LEVEL SECURITY;
+ALTER TABLE hotel_bookings ENABLE ROW LEVEL SECURITY;
 
--- DROP POLICY IF EXISTS "anon_select_bookings" ON hotel_bookings;
--- CREATE POLICY "anon_select_bookings" ON hotel_bookings FOR SELECT
---   TO anon, authenticated USING (true);
+DROP POLICY IF EXISTS "anon_select_bookings" ON hotel_bookings;
+CREATE POLICY "anon_select_bookings" ON hotel_bookings FOR SELECT
+  TO anon, authenticated USING (true);
 
--- DROP POLICY IF EXISTS "anon_insert_bookings" ON hotel_bookings;
--- CREATE POLICY "anon_insert_bookings" ON hotel_bookings FOR INSERT
---   TO anon, authenticated WITH CHECK (true);
+DROP POLICY IF EXISTS "anon_insert_bookings" ON hotel_bookings;
+CREATE POLICY "anon_insert_bookings" ON hotel_bookings FOR INSERT
+  TO anon, authenticated WITH CHECK (true);
 
--- DROP POLICY IF EXISTS "anon_update_bookings" ON hotel_bookings;
--- CREATE POLICY "anon_update_bookings" ON hotel_bookings FOR UPDATE
---   TO anon, authenticated USING (true) WITH CHECK (true);
+DROP POLICY IF EXISTS "anon_update_bookings" ON hotel_bookings;
+CREATE POLICY "anon_update_bookings" ON hotel_bookings FOR UPDATE
+  TO anon, authenticated USING (true) WITH CHECK (true);
 
--- DROP POLICY IF EXISTS "anon_delete_bookings" ON hotel_bookings;
--- CREATE POLICY "anon_delete_bookings" ON hotel_bookings FOR DELETE
---   TO anon, authenticated USING (true);
+DROP POLICY IF EXISTS "anon_delete_bookings" ON hotel_bookings;
+CREATE POLICY "anon_delete_bookings" ON hotel_bookings FOR DELETE
+  TO anon, authenticated USING (true);
