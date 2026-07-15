@@ -55,7 +55,8 @@
     "framer-motion": "^11.3.0",
     "input-otp": "^1.2.4",
     "lucide-react": "^0.446.0",
-"next": "^14.2.35"    "next-themes": "^0.3.0",
+    "next": "13.5.1",
+    "next-themes": "^0.3.0",
     "postcss": "8.4.30",
     "react": "18.2.0",
     "react-day-picker": "^8.10.1",
@@ -72,4 +73,3 @@
     "zod": "^3.23.8"
   }
 }
-ye lo or mujye edit krdo jo krn hai
