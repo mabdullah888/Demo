@@ -129,7 +129,7 @@ export default function BookingPage() {
                           value={form.phone}
                           onChange={handleChange}
                           className={inputClass}
-                          placeholder="+92 3430793896"
+                          placeholder="+1 (212) 555-0100"
                         />
                       </div>
                     </div>
